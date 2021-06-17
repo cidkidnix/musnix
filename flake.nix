@@ -8,7 +8,8 @@
         ];
         forAllSystems = f: nixpkgs.lib.genAttrs systems (system: f system);
     in {
-        nixosModules.musnix = import ./default.nix;
+        nixosModules.musnix = import ./modules/default.nix;
         nixosModule = self.nixosModules.musnix;
+        overlay = import ./overlay.nix;
     };
 }

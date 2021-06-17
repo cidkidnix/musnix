@@ -69,6 +69,11 @@ As an alternative to nix-channels or cloning the project you can instead use it 
           ## Other modules will also be here
           inputs.musnix.nixosModules.musnix
           ./configuration.nix ## Configuration file from regular /etc/nixos config
+          ({ pkgs, lib, musnix }: {
+            nixpkgs.overlays = [
+              inputs.musnix.overlay
+            ];
+          })
         ];
         specialArgs = { inherit inputs; }; ## Inherit inputs to configuration.nix so you can call inputs.inputname
        };
