@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  imports = ./modules/default.nix;
+  imports = [ ./modules/default.nix ];
 
   nixpkgs.overlays = [
     (import ./overlay.nix)
